@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Evelyn Campbell — Research &amp; Work</title>
-<meta name="description" content="Independent research portfolio — computational neuroscience, dynamical systems, music." />
+<title>Evelyn Campbell: research and music</title>
+<meta name="description" content="Evelyn Campbell writes simulations of brains under load and tools for reading neural networks, and makes emo songs as evevev." />
 <link rel="icon" type="image/svg+xml" href="glyph-mark.svg" />
-<meta property="og:title" content="Evelyn Campbell — Research &amp; Work" />
-<meta property="og:description" content="Independent research portfolio — computational neuroscience, dynamical systems, music." />
+<meta property="og:title" content="Evelyn Campbell: research and music" />
+<meta property="og:description" content="Evelyn Campbell writes simulations of brains under load and tools for reading neural networks, and makes emo songs as evevev." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://enactedvolition.github.io/portfolio/fig1_acute_da.png" />
 <meta property="og:url" content="https://enactedvolition.github.io/portfolio/" />
 <link rel="canonical" href="https://enactedvolition.github.io/portfolio/" />
 <link rel="stylesheet" href="styles.css" />
+<style>.confirm{background:#ffd23f;color:#111;padding:0 .25em;font-weight:700;}</style>
 </head>
 <body>
 
@@ -36,33 +37,30 @@
 
 <section class="hero kg-grid-bg">
   <div class="wrap">
-    <p class="kicker">Independent Researcher — Neuroscience × Computation</p>
+    <p class="kicker">Independent researcher · last updated <mark class="confirm">[CONFIRM: date]</mark></p>
     <h1>Evelyn Campbell</h1>
-    <p class="lead">Computational models of perturbed neural dynamics — substance pharmacology, neurodivergence,
-      and the boundary conditions of coherent cognition. Interdisciplinary work spanning dynamical systems,
-      reinforcement learning, and music.</p>
-    <p class="prompt">&gt; selected work below<span class="kg-cursor" aria-hidden="true"></span></p>
+    <p class="lead">I write simulations of brains under load, and tools for reading neural networks. I say where each one stops being true.</p>
+    <p class="lead">Current work: a six-layer model of how methamphetamine and ADHD medication diverge, and a test of whether near-death experiences look like a network at the edge of chaos. Code and figures are public. I also make emo songs as <strong>evevev</strong>.</p>
+    <div class="btn-row">
+      <a class="kg-btn kg-btn--primary" href="#meth-model">Research</a>
+      <a class="kg-btn kg-btn--ghost" href="#music">Music</a>
+      <a class="kg-btn kg-btn--ghost" href="https://enactedvolition.github.io/">Main site: tools and studies</a>
+    </div>
   </div>
 </section>
 
 <section class="section" id="meth-model">
   <div class="wrap">
     <div class="panel kg-frame">
-      <span class="kg-frame__title">01 — Computational Model</span>
+      <span class="kg-frame__title">01 · Computational model</span>
       <div class="section-head">
         <h2>Methamphetamine Perturbations in<br/>Neurodivergent Reward &amp; Arousal Networks</h2>
-        <span class="kg-badge kg-badge--orange"><span class="dot"></span>In submission</span>
+        <span class="kg-badge kg-badge--orange"><span class="dot"></span>Preprint</span>
       </div>
-      <div class="meta-line">Campbell, E. (2026) · Preprint manuscript</div>
-      <p>Stimulant medication for ADHD shares core pharmacology with methamphetamine, yet the two are clinically
-        opposite in outcome. This model couples terminal dopamine kinetics, temperature-dependent oxidative
-        toxicity, locus-coeruleus gain control, and reinforcement learning across timescales from milliseconds
-        to months, parameterized for neurotypical and two ADHD architectures.</p>
-      <p>It identifies temperature — not extracellular dopamine — as the dominant bifurcation variable for
-        neurotoxicity, explains why sleep loss amplifies stimulant reinforcement, predicts that ADHD-Combined
-        architectures inflate drug value faster than neurotypical ones while ADHD-Inattentive architectures
-        benefit more from low-dose therapeutics, and reproduces the chronic-use tolerance trajectory seen in
-        PET imaging.</p>
+      <div class="meta-line">Campbell, E. (2026) · Preprint on Zenodo · status <mark class="confirm">[CONFIRM: "In submission" here vs "Published · iterating" on the main site; which is current, and where is it submitted?]</mark></div>
+      <p>ADHD stimulants and methamphetamine act on the same dopamine machinery, with opposite clinical outcomes. This simulation asks why. It links six layers, from millisecond dopamine release at the terminal to months of adaptation, and runs them for neurotypical and two ADHD parameter sets.</p>
+      <p>Main finding, in the model: temperature is the dominant bifurcation variable for neurotoxicity, ahead of extracellular dopamine. Risk does not climb in a straight line with temperature; past a point the system switches behavior. The model also predicts that ADHD-Combined parameters inflate drug value faster than neurotypical ones, and that ADHD-Inattentive parameters gain more from low therapeutic doses. It reproduces the chronic-use tolerance curve reported in PET imaging <mark class="confirm">[CONFIRM: which PET study, and what fit metric?]</mark>.</p>
+      <p>Weakest point: <mark class="confirm">[CONFIRM: parameter sources, and whether the model has been fit to any human outcome data]</mark>. This is a model. It is not medical guidance.</p>
       <div class="fig-grid">
         <figure>
           <img src="fig1_acute_da.png" alt="Acute dopamine response figure" />
@@ -88,12 +86,13 @@
 <section class="section" id="nde">
   <div class="wrap">
     <div class="panel kg-frame">
-      <span class="kg-frame__title">02 — Exploratory Model</span>
+      <span class="kg-frame__title">02 · Exploratory model</span>
       <div class="section-head">
         <h2>Near-Death Experience as a<br/>Near-Criticality Phenomenon</h2>
         <span class="kg-badge kg-badge--cyan"><span class="dot"></span>Exploratory</span>
       </div>
       <div class="meta-line">Dynamical-systems experiment · not evidence about real human NDEs</div>
+      <p><strong>Verdict: supported only when coherence is measured at long range and restructuring is gated for reproducibility. It fails under naive measures.</strong></p>
       <p>Tests whether Ω = (representational restructuring) / (identity / coherence loss) has an interior
         maximum along the ridge where the largest Lyapunov exponent λ<sub>max</sub> ≈ 0 — between order and
         chaos. A 128-unit rate network was driven across the order-to-chaos transition (Sompolinsky–Crisanti–Sommers
@@ -109,10 +108,10 @@
           <tr><td>Ω* = struct-R × long-coherence</td><td>0.01</td><td class="hl">0.85</td><td>0.52</td></tr>
         </tbody>
       </table>
-      <p><strong>Verdict: supported, under load-bearing operationalizations.</strong> The hypothesis fails under
+      <p>Details: the hypothesis fails under
         naive measures (short-lag coherence, raw perturbation-sensitivity) and only holds once coherence is
         measured at long temporal range and restructuring is gated for reproducibility against noise. λ≈0 is a
-        robust local optimum of structured reorganization with retained coherence — whether it is the global
+        local optimum of structured reorganization with retained coherence — whether it is the global
         optimum depends on exactly those two assumptions, which are defensible but not free.</p>
       <div class="fig-grid">
         <figure>
@@ -127,16 +126,16 @@
 <section class="section" id="music">
   <div class="wrap">
     <div class="panel kg-frame">
-      <span class="kg-frame__title">03 — Music</span>
+      <span class="kg-frame__title">03 · Music</span>
       <div class="section-head">
         <h2>Music</h2>
-        <span class="kg-badge kg-badge--magenta"><span class="dot"></span>129 tracks</span>
+        <span class="kg-badge kg-badge--magenta"><span class="dot"></span>129 tracks <mark class="confirm">[CONFIRM: main site says 155]</mark></span>
       </div>
-      <p>Midwest emo, pluggnb, math rock, indie rock, post hardcore — released under <strong>evevev</strong> on Suno.</p>
+      <p><strong>evevev</strong>: songs in midwest emo, pluggnb, math rock, indie rock and post hardcore, made with Suno, an AI music generator. My part: <mark class="confirm">[CONFIRM: what you do: lyrics, prompts, picking and editing takes?]</mark>. Generated: <mark class="confirm">[CONFIRM: vocals and instruments, fully or partly?]</mark>.</p>
       <div class="btn-row">
-        <a class="kg-btn kg-btn--primary" href="https://suno.com/@evevev">Listen — @evevev on Suno</a>
-        <a class="kg-btn kg-btn--ghost" href="https://www.instagram.com/data.ang3l/" rel="me noopener">Instagram — @data.ang3l</a>
-        <a class="kg-btn kg-btn--ghost" href="https://x.com/333evie" rel="me noopener">X — @333evie</a>
+        <a class="kg-btn kg-btn--primary" href="https://suno.com/@evevev">Listen on Suno: @evevev</a>
+        <a class="kg-btn kg-btn--ghost" href="https://www.instagram.com/data.ang3l/" rel="me noopener">Instagram: @data.ang3l</a>
+        <a class="kg-btn kg-btn--ghost" href="https://x.com/333evie" rel="me noopener">X: @333evie</a>
       </div>
     </div>
   </div>
@@ -146,10 +145,10 @@
   <div class="wrap">
     <p class="meta-line" style="margin-bottom: var(--sp-2);">Contact</p>
     <p><a href="mailto:robolution789@gmail.com">robolution789@gmail.com</a></p>
-    <p><a href="https://enactedvolition.github.io/">Main site — enactedvolition.github.io</a></p>
+    <p><a href="https://enactedvolition.github.io/">Main site: enactedvolition.github.io</a></p>
   </div>
   <div class="kg-keybar">
-    <span class="kg-key"><span class="kg-key__cap">EV</span> Evelyn Campbell — Independent Researcher</span>
+    <span class="kg-key"><span class="kg-key__cap">EV</span> Evelyn Campbell · independent researcher</span>
   </div>
 </footer>
 
