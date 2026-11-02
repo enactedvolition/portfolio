@@ -17,7 +17,8 @@
   });
 
   function init(D) {
-    var VH = 4, PAD = 24, TOPPAD = 40, ZMAX = 13;
+    var VH = 4, PAD = 24, TOPPAD = 40, ZMAX = 13, stamp = document.getElementById('map-generated');
+    if (stamp) stamp.textContent = D.generated;
     var BAND = [['#FFFF55', '#000000'], ['#55FF55', '#000000'], ['#00AA00', '#000000'], ['#AA5500', '#FFFFFF'],
                 ['#555555', '#FFFFFF'], ['#AAAAAA', '#000000'], ['#FFFFFF', '#000000']];
     var band = function (n) { return n === 0 ? 0 : Math.min(6, 32 - Math.clz32(n)); };
