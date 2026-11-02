@@ -25,6 +25,7 @@
     </div>
     <div class="nav-wrap">
       <nav class="site-nav">
+        <a href="#archipelago">Map</a>
         <a href="#meth-model">Research</a>
         <a href="#nde">Models</a>
         <a href="#music">Music</a>
@@ -34,6 +35,47 @@
     </div>
   </div>
 </header>
+
+<section class="section map-section" id="archipelago" data-src="data/archipelago.json">
+  <div class="wrap">
+    <div class="panel kg-frame map-panel">
+      <span class="kg-frame__title">00 · Repositories</span>
+      <div class="section-head">
+        <h2>Archipelago</h2>
+        <span class="kg-badge kg-badge--cyan"><span class="dot"></span>Built from git</span>
+      </div>
+      <div class="map-view" tabindex="0" role="application" aria-label="Island map of Evelyn Campbell's public repositories. Left and right arrows change the date, space replays the history, Q and E rotate, plus and minus zoom.">
+        <canvas></canvas>
+        <noscript><p class="map-read">The map needs JavaScript.</p></noscript>
+      </div>
+      <input type="range" id="map-time" aria-label="Date" />
+      <p class="map-read" id="map-when">Loading the map.</p>
+      <p class="map-read" id="map-cell" aria-live="polite"></p>
+      <div class="kg-keybar map-keys">
+        <button class="kg-key" type="button" data-act="prev"><span class="kg-key__cap">◄</span>Earlier</button>
+        <button class="kg-key kg-key--act" type="button" data-act="play"><span class="kg-key__cap">Space</span><span class="label">Replay</span></button>
+        <button class="kg-key" type="button" data-act="next"><span class="kg-key__cap">►</span>Later</button>
+        <button class="kg-key" type="button" data-act="left"><span class="kg-key__cap">Q</span>Rotate</button>
+        <button class="kg-key" type="button" data-act="right"><span class="kg-key__cap">E</span>Rotate</button>
+        <button class="kg-key" type="button" data-act="in"><span class="kg-key__cap">+</span>Zoom</button>
+        <button class="kg-key" type="button" data-act="out"><span class="kg-key__cap">−</span>Zoom</button>
+        <button class="kg-key" type="button" data-act="fit"><span class="kg-key__cap">0</span>Fit</button>
+      </div>
+      <p class="map-lede">Each public repository I keep is an island, and each file is a column. A column's height is how many commits have changed that file. The glyph on top names who changed it last: @ is me, and the letters are Claude models. Replay the history to watch the islands rise.</p>
+      <ul class="map-legend" aria-label="Height key">
+        <li><i style="background:#FFFF55"></i>sand: 0 commits</li>
+        <li><i style="background:#55FF55"></i>grass 1</li>
+        <li><i style="background:#00AA00"></i>forest 2–3</li>
+        <li><i style="background:#AA5500"></i>hills 4–7</li>
+        <li><i style="background:#555555"></i>mountain 8–15</li>
+        <li><i style="background:#AAAAAA"></i>peak 16–31</li>
+        <li><i style="background:#FFFFFF"></i>snow 32+</li>
+      </ul>
+      <ul class="map-legend map-glyphs" id="map-glyphs" aria-label="Glyph key"></ul>
+      <div class="meta-line map-meta">Snapshot 2026-11-02 · public repositories only · pixel font: TempleOS 8×8 (public domain)</div>
+    </div>
+  </div>
+</section>
 
 <section class="hero kg-grid-bg">
   <div class="wrap">
@@ -173,5 +215,6 @@
 })();
 </script>
 <script src="suno-count.js" data-src="data/suno.json" defer></script>
+<script src="archipelago.js" defer></script>
 </body>
 </html>
