@@ -1,5 +1,5 @@
 /* ============================================================
-   KAIRO-GLYPH — SPACING, RADII, BORDERS
+   SPACING, RADII, BORDERS
    8px modular rhythm. Mathematically rigid layout.
    ============================================================ */
 :root {
@@ -15,12 +15,11 @@
   --sp-8: 4rem;      /* 64 */
   --sp-9: 6rem;      /* 96 */
 
-  /* ---- Radii — HARD CORNERS (CP437 / UEFI discipline) ----
-     The terminal signature is the square corner. Only status dots are round. */
-  --radius-xs: 0;     /* chips, inline tags */
-  --radius-sm: 0;     /* buttons, inputs */
-  --radius-md: 0;     /* panels */
-  --radius-lg: 0;     /* panels */
+  /* ---- Radii — Fiber keeps them small; only status dots are round. */
+  --radius-xs: 2px;     /* chips, inline tags */
+  --radius-sm: 4px;     /* buttons, inputs */
+  --radius-md: 4px;     /* panels */
+  --radius-lg: 6px;     /* panels */
   --radius-pill: 999px;  /* status dots ONLY */
 
   /* ---- Borders ---- */
@@ -29,15 +28,15 @@
   --border: var(--bw-hair) solid var(--border-faint);
   --border-grid: var(--bw-hair) solid var(--grid);
 
-  /* ---- Glow / bloom (text-shadow blooming, accent halos) ---- */
-  --glow-cyan: 0 0 8px rgba(0, 229, 255, 0.45);
-  --glow-orange: 0 0 8px rgba(255, 138, 30, 0.45);
-  --glow-magenta: 0 0 8px rgba(255, 61, 190, 0.45);
-  --glow-red: 0 0 8px rgba(255, 77, 77, 0.45);
-  --glow-green: 0 0 8px rgba(39, 217, 128, 0.45);
+  /* ---- Glow / bloom: switched off (Fiber has no glow); tokens kept so rules still resolve ---- */
+  --glow-cyan: 0 0 0 transparent;
+  --glow-orange: 0 0 0 transparent;
+  --glow-magenta: 0 0 0 transparent;
+  --glow-red: 0 0 0 transparent;
+  --glow-green: 0 0 0 transparent;
 
-  /* ---- Elevation (terminals favor borders over shadow) ---- */
-  --shadow-panel: 0 2px 0 rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.4);
+  /* ---- Elevation (Fiber: borders, not shadow) ---- */
+  --shadow-panel: none;
   --shadow-inset: inset 0 0 0 1px var(--border-faint);
 
   /* ---- Layout ---- */

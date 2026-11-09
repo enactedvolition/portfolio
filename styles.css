@@ -1,11 +1,11 @@
 /* ============================================================
    EVELYN CAMPBELL — PORTFOLIO
-   Built on the Kairo-Glyph design system tokens (tokens/*.css).
+   Built on the Fiber design system (fiber.css); colors.css bridges the old token names.
    This file: global entry + page-specific layout/components.
    ============================================================ */
 @import url("fonts.css");
+@import url("fiber.css");
 @import url("colors.css");
-@import url("colors-light.css");
 @import url("typography.css");
 @import url("spacing.css");
 @import url("effects.css");
@@ -310,3 +310,6 @@ h1, h2 { overflow-wrap: anywhere; }
   .site-footer .wrap { padding: var(--sp-5) var(--sp-4); }
   .map-view { height: 60vh; height: 60svh; }
 }
+
+/* The EVRL mark is a light-on-dark SVG; flip it on the light ground. */
+[data-theme="light"] .brand img { filter: invert(1); }

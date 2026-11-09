@@ -1,0 +1,74 @@
+/* Fiber design system — https://claude.ai/artifact/ (tokens generated from tokens.json).
+   Self-hosted IBM Plex under the SIL OFL (fonts/IBM-Plex-OFL.txt); no third-party requests. */
+:root, [data-theme="light"] {
+  --bg: oklch(96.8% 0.014 245);
+  --panel: oklch(99.3% 0.003 245);
+  --fg: oklch(22.0% 0.060 268);
+  --muted: oklch(47.0% 0.045 262);
+  --faint: oklch(62.0% 0.035 258);
+  --line: oklch(88.5% 0.020 255);
+  --grid: oklch(93.0% 0.014 255);
+  --accent: oklch(50.0% 0.250 266);
+  --accent-soft: oklch(93.0% 0.033 266);
+  --on-accent: oklch(99.5% 0.002 245);
+  --moire: #2148ee1a;
+  --ell: oklch(60.0% 0.130 160);
+  --hyp: oklch(60.0% 0.210 33);
+  --inv: oklch(52.0% 0.217 345);
+  --shadow-tip: 0 4px 14px rgba(15, 24, 54, 0.10);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: oklch(19.0% 0.050 268);
+    --panel: oklch(23.5% 0.055 268);
+    --fg: oklch(94.5% 0.014 255);
+    --muted: oklch(75.0% 0.035 258);
+    --faint: oklch(55.5% 0.045 262);
+    --line: oklch(33.0% 0.050 266);
+    --grid: oklch(26.0% 0.050 267);
+    --accent: oklch(66.0% 0.160 262);
+    --accent-soft: oklch(27.5% 0.080 266);
+    --on-accent: oklch(19.0% 0.050 268);
+    --moire: #5a8ff31a;
+    --ell: oklch(66.0% 0.140 162);
+    --hyp: oklch(66.0% 0.190 36);
+    --inv: oklch(58.0% 0.210 350);
+    --shadow-tip: 0 6px 18px rgba(0, 0, 0, 0.45);
+    color-scheme: dark;
+  }
+}
+[data-theme="dark"] {
+  --bg: oklch(19.0% 0.050 268);
+  --panel: oklch(23.5% 0.055 268);
+  --fg: oklch(94.5% 0.014 255);
+  --muted: oklch(75.0% 0.035 258);
+  --faint: oklch(55.5% 0.045 262);
+  --line: oklch(33.0% 0.050 266);
+  --grid: oklch(26.0% 0.050 267);
+  --accent: oklch(66.0% 0.160 262);
+  --accent-soft: oklch(27.5% 0.080 266);
+  --on-accent: oklch(19.0% 0.050 268);
+  --moire: #5a8ff31a;
+  --ell: oklch(66.0% 0.140 162);
+  --hyp: oklch(66.0% 0.190 36);
+  --inv: oklch(58.0% 0.210 350);
+  --shadow-tip: 0 6px 18px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+:root {
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --font-display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-math: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+}
+@font-face { font-family: "IBM Plex Sans Condensed"; src: url("fonts/IBMPlexSansCondensed-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Sans Condensed"; src: url("fonts/IBMPlexSansCondensed-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Sans"; src: url("fonts/IBMPlexSans-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Sans"; src: url("fonts/IBMPlexSans-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Sans"; src: url("fonts/IBMPlexSans-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }

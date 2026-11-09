@@ -1,5 +1,5 @@
 /* ============================================================
-   KAIRO-GLYPH — STRUCTURAL CHROME & HARDWARE EMULATION
+   STRUCTURAL CHROME
    Box-drawing panel frames, keybind bars, telemetry grids, bloom,
    block cursor. The "hardware veil" is now structural — CP437 /
    UEFI-setup group boxes — not a faked CRT scanline buzz.
@@ -13,16 +13,10 @@
   position: relative;
   background: var(--surface-card);
   border: 1px solid var(--border-strong);
-  border-radius: 0;
+  border-radius: var(--radius-md);
 }
-.kg-frame::before {
-  content: "";
-  position: absolute;
-  inset: 3px;
-  border: 1px solid var(--border-faint);
-  pointer-events: none;
-  z-index: 1;
-}
+/* Fiber: one 1px border; the inner second rule is dropped */
+.kg-frame::before { content: none; }
 .kg-frame__title {
   position: absolute;
   top: 0;
@@ -86,12 +80,7 @@
 /* ---- The Telemetry Grid background ----
    Faint coordinate grid behind interface elements. */
 .kg-grid-bg {
-  background-color: var(--void);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 32px 32px;
-  background-position: -1px -1px;
+  background-color: var(--void); /* Fiber: no decorative grid */
 }
 .kg-grid-bg--fine {
   background-size: 16px 16px;

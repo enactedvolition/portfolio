@@ -1,79 +1,59 @@
 /* ============================================================
-   KAIRO-GLYPH — COLOR SYSTEM  (v5.1 · cognitive-load palette)
+   COLOR BRIDGE — Fiber design system
+   fiber.css defines the tokens (light + dark via prefers-color-scheme,
+   or data-theme="light|dark" from the MODE toggle). This file points the
+   names the page CSS already uses at them, so no component rule changes.
 
-   PRINCIPLE — colour codes are capped to reduce decode effort:
-   · THREE categorical hues only (cyan / orange / magenta). Three is
-     within working-memory limits, so the eye never has to "search"
-     a legend. Each hue maps to ONE role, always.
-   · TWO reserved valenced hues (red / green) carry their universal
-     danger / safe meaning and are NEVER used decoratively — so the
-     user spends zero effort decoding them.
-
-   ROLE MAP (1 hue = 1 meaning, no exceptions):
-     CYAN     → data · readouts · information · the calm resting accent
-     ORANGE   → active process · logs · time-series · "in motion / attend"
-     MAGENTA  → focus · selection · the single thing to act on
-     RED      → error · fault · critical   (reserved)
-     GREEN    → success · ok · complete     (reserved)
-
-   Salience hierarchy: cyan (calm) → orange (attend) → magenta (act).
+   Role map (one hue per role, as before):
+     cyan → accent (data, links)   magenta → inv (primary action)
+     orange, red → hyp (attend / fault)   green → ell (ok)
    ============================================================ */
 :root {
-  /* ---- Core Canvas & Backdrops ---- */
-  --void: #0D0D0D;            /* Deep Void Canvas — base workspace backdrop */
-  --obsidian: #121212;        /* Obsidian Surface — component containers, bento cards */
-  --grid: #252525;            /* Muted Telemetry Grid — node grids, chart backdrops */
-  --border-faint: #2D2D2D;    /* Bento container hairline border */
+  --void: var(--bg);
+  --obsidian: var(--panel);
+  --border-faint: var(--line);
+  --border-strong: color-mix(in oklab, var(--line), var(--faint) 55%);
 
-  /* Elevated surface steps */
-  --surface-0: #0D0D0D;
-  --surface-1: #121212;
-  --surface-2: #181818;
-  --surface-3: #1F1F1F;
+  --surface-0: var(--bg);
+  --surface-1: var(--panel);
+  --surface-2: var(--grid);
+  --surface-3: color-mix(in oklab, var(--grid), var(--fg) 4%);
 
-  /* ---- The categorical trio (neutral valence) ---- */
-  --cyan: #00E5FF;            /* DATA · information · readouts · default highlight */
-  --orange: #FF8A1E;          /* ACTIVE · logs · time-series · attention */
-  --magenta: #FF3DBE;         /* FOCUS · selection · primary action */
+  --cyan: var(--accent);
+  --orange: var(--hyp);
+  --magenta: var(--inv);
+  --red: var(--hyp);
+  --green: var(--ell);
 
-  /* ---- Reserved valenced hues (meaning only, never decoration) ---- */
-  --red: #FF4D4D;             /* ERROR · fault · critical */
-  --green: #27D980;           /* SUCCESS · ok · complete */
-
-  /* Signal aliases (point at the reserved hues / trio) */
   --signal-critical: var(--red);
   --signal-warning: var(--orange);
   --signal-ok: var(--green);
   --signal-info: var(--cyan);
   --signal-active: var(--magenta);
 
-  /* Accent tints — low-alpha fills for chips, glows, fields */
-  --cyan-08: rgba(0, 229, 255, 0.08);
-  --cyan-16: rgba(0, 229, 255, 0.16);
-  --orange-08: rgba(255, 138, 30, 0.08);
-  --orange-16: rgba(255, 138, 30, 0.16);
-  --magenta-08: rgba(255, 61, 190, 0.08);
-  --magenta-16: rgba(255, 61, 190, 0.16);
-  --red-08: rgba(255, 77, 77, 0.08);
-  --red-16: rgba(255, 77, 77, 0.18);
-  --green-08: rgba(39, 217, 128, 0.08);
-  --green-16: rgba(39, 217, 128, 0.16);
+  --cyan-08: color-mix(in srgb, var(--accent) 8%, transparent);
+  --cyan-16: color-mix(in srgb, var(--accent) 16%, transparent);
+  --orange-08: color-mix(in srgb, var(--hyp) 8%, transparent);
+  --orange-16: color-mix(in srgb, var(--hyp) 16%, transparent);
+  --magenta-08: color-mix(in srgb, var(--inv) 8%, transparent);
+  --magenta-16: color-mix(in srgb, var(--inv) 16%, transparent);
+  --red-08: var(--orange-08);
+  --red-16: var(--orange-16);
+  --green-08: color-mix(in srgb, var(--ell) 8%, transparent);
+  --green-16: color-mix(in srgb, var(--ell) 16%, transparent);
 
-  /* ---- Text ---- */
-  --text-primary: #E8E8E8;    /* primary readable copy */
-  --text-secondary: #9A9A9A;  /* secondary / metadata */
-  --text-muted: #5C5C5C;      /* disabled, dim labels, comments */
-  --text-on-accent: #0D0D0D;  /* dark text on bright accent fills */
+  --text-primary: var(--fg);
+  --text-secondary: var(--muted);
+  --text-muted: var(--muted);
+  --text-on-accent: var(--on-accent);
 
-  /* ---- Semantic aliases ---- */
   --bg-app: var(--void);
   --surface-card: var(--obsidian);
   --surface-raised: var(--surface-2);
   --border-default: var(--border-faint);
-  --border-strong: var(--grid);
-  --accent-primary: var(--magenta);   /* the act / focus colour */
-  --accent-data: var(--cyan);         /* readouts, info */
-  --accent-active: var(--orange);     /* in-motion / attention */
-  --accent-success: var(--green);     /* reserved */
-  --accent-critical: var(--red);      /* reserved */
+  --accent-primary: var(--magenta);
+  --accent-data: var(--cyan);
+  --accent-active: var(--orange);
+  --accent-success: var(--green);
+  --accent-critical: var(--red);
 }
