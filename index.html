@@ -12,6 +12,8 @@
 <meta property="og:image" content="https://enactedvolition.github.io/portfolio/fig1_acute_da.png" />
 <meta property="og:url" content="https://enactedvolition.github.io/portfolio/" />
 <link rel="canonical" href="https://enactedvolition.github.io/portfolio/" />
+<meta name="theme-color" content="#f3f6fc" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0b1230" media="(prefers-color-scheme: dark)" />
 <link rel="stylesheet" href="styles.css" />
 <style>.confirm{background:#ffd23f;color:#111;padding:0 .25em;font-weight:700;}</style>
 </head>
@@ -198,17 +200,20 @@
 (function () {
   var root = document.documentElement;
   var btn = document.getElementById('theme-toggle');
-  var theme = localStorage.getItem('kg-theme') || 'dark';
+  var theme = null;
+  try { theme = localStorage.getItem('kg-theme'); } catch (e) {}
+  if (theme !== 'light' && theme !== 'dark') {
+    theme = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
   function apply(t) {
-    if (t === 'light') { root.setAttribute('data-theme', 'light'); }
-    else { root.removeAttribute('data-theme'); }
+    root.setAttribute('data-theme', t);
     if (btn) { btn.textContent = 'MODE: ' + t.toUpperCase(); }
   }
   apply(theme);
   if (btn) {
     btn.addEventListener('click', function () {
       theme = theme === 'light' ? 'dark' : 'light';
-      localStorage.setItem('kg-theme', theme);
+      try { localStorage.setItem('kg-theme', theme); } catch (e) {}
       apply(theme);
     });
   }

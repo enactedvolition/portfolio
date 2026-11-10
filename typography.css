@@ -1,13 +1,13 @@
 /* ============================================================
-   KAIRO-GLYPH — TYPOGRAPHY
-   Rigid, uniform. Mono drives data/terminal; sans for system labels.
+   TYPOGRAPHY
+   Fiber families: Plex Sans Condensed for headings, Plex Mono for data, Plex Sans for labels.
    ============================================================ */
 :root {
   /* ---- Families ---- */
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', ui-monospace, monospace;
-  --font-sans: 'Inter', system-ui, -apple-system, 'Roboto', sans-serif;
+  /* --font-mono comes from fiber.css (IBM Plex Mono); sans is IBM Plex Sans */
+  --font-sans: var(--font-body);
   /* The icon / pixel-glyph driver — IBM EGA BIOS, VT323 stand-in, monospace floor */
-  --font-icon: 'EGA BIOS', 'VT323', 'JetBrains Mono', monospace;
+  --font-icon: 'EGA BIOS', var(--font-mono);
 
   /* The Technical Driver = mono; The System Interface = sans */
   --font-data: var(--font-mono);
@@ -45,10 +45,10 @@
   --ls-tight: -0.01em;    /* large display */
 
   /* ---- Semantic roles ---- */
-  --text-display: var(--fw-black) var(--fs-display)/var(--lh-tight) var(--font-mono);
-  --text-h1: var(--fw-bold) var(--fs-h1)/var(--lh-tight) var(--font-mono);
-  --text-h2: var(--fw-bold) var(--fs-h2)/var(--lh-snug) var(--font-mono);
-  --text-h3: var(--fw-bold) var(--fs-h3)/var(--lh-snug) var(--font-mono);
+  --text-display: 600 var(--fs-display)/var(--lh-tight) var(--font-display);
+  --text-h1: 600 var(--fs-h1)/var(--lh-tight) var(--font-display);
+  --text-h2: 600 var(--fs-h2)/var(--lh-snug) var(--font-display);
+  --text-h3: 600 var(--fs-h3)/var(--lh-snug) var(--font-display);
   --text-body: var(--fw-regular) var(--fs-body)/var(--lh-normal) var(--font-mono);
   --text-system-label: var(--fw-medium) var(--fs-label)/var(--lh-snug) var(--font-sans);
 }
