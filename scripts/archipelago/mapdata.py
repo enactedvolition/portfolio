@@ -116,7 +116,7 @@ def group(p):
     return '/'.join(parts[:2]) if len(parts) > 2 else region(p)
 
 
-MAP_W, MAP_H, SPARE = 42, 30, 0.35
+MAP_W, MAP_H, SPARE = 52, 36, 0.35
 origin = git('remote', 'get-url', 'origin').strip()
 churn = {}
 for fs in touched.values():
