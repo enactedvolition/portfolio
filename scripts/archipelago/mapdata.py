@@ -10,7 +10,7 @@ Owner of a file at a turn: the commit `git log -1 <turn> -- <file>` returns. Com
 a commit that changes the file owns it; a merge passes ownership through the first parent it kept the file from
 unchanged, and owns the file itself only if it matches no parent.
 Contested at a merge turn: files changed on both sides since the merge base.
-Layout: one island per top-level folder in a fixed MAP_W x MAP_H sea. Each island is seeded noise smoothed by a
+Layout: one island per top-level folder in a MAP_W x MAP_H sea, grown to fit. Each island is seeded noise smoothed by a
 cellular automaton (the 4-5 rule), then grown or eroded to exactly its file count plus SPARE coast. Inside an island,
 subfolders sit together and each subfolder's most-changed files sit nearest the island's center. Seeded by the repo URL,
 so a rebuild of the same history draws the same map.
@@ -175,16 +175,21 @@ regions = sorted({region(p) for p in paths}, key=lambda r: (-sum(region(p) == r 
 need = {r: sum(region(p) == r for p in paths) for r in regions}
 target = {r: need[r] + (round(need[r] * SPARE) if need[r] > 2 else 1) for r in regions}
 radius = {r: math.sqrt(target[r] / math.pi) for r in regions}
-rng, mid = random.Random(f'{origin}:seeds'), ((MAP_W - 1) / 2, (MAP_H - 1) / 2)
-seeds, island, land = {}, {}, set()
-for r in regions:  # largest first, each as near the middle as spacing allows
-    cands = [c for c in ((rng.uniform(radius[r] + 1.5, MAP_W - 2.5 - radius[r]),
-                          rng.uniform(radius[r] + 1.5, MAP_H - 2.5 - radius[r])) for _ in range(3000))
-             if all(math.dist(c, seeds[o]) >= radius[r] + radius[o] + 2.5 for o in seeds)]
-    assert cands, f'map too small for {r}'
-    seeds[r] = min(cands, key=lambda c: math.dist(c, mid))
-    island[r] = ca_island(r, seeds[r], radius[r], target[r], land | {n for c in land for n in moore(c)})
-    land |= island[r]
+while True:  # grow the sea only when the islands don't fit, so every map that fits stays as it was
+    rng, mid = random.Random(f'{origin}:seeds'), ((MAP_W - 1) / 2, (MAP_H - 1) / 2)
+    seeds, island, land = {}, {}, set()
+    for r in regions:  # largest first, each as near the middle as spacing allows
+        cands = [c for c in ((rng.uniform(radius[r] + 1.5, MAP_W - 2.5 - radius[r]),
+                              rng.uniform(radius[r] + 1.5, MAP_H - 2.5 - radius[r])) for _ in range(3000))
+                 if all(math.dist(c, seeds[o]) >= radius[r] + radius[o] + 2.5 for o in seeds)]
+        if not cands:
+            break
+        seeds[r] = min(cands, key=lambda c: math.dist(c, mid))
+        island[r] = ca_island(r, seeds[r], radius[r], target[r], land | {n for c in land for n in moore(c)})
+        land |= island[r]
+    else:
+        break
+    MAP_W, MAP_H = MAP_W + 6, MAP_H + 4
 
 cell_of, spare = {}, []
 for r in regions:
